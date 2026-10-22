@@ -14,7 +14,7 @@ Papa.parse('netflix_series_edited.csv', {
     });
  
     new Chart(
-      document.getElementById('countryChart'),
+      document.getElementById('revenueChart'),
       {
         type: 'bar',
         data: {
