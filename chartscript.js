@@ -1,6 +1,4 @@
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="chartscript.js"></script>
-Papa.parse('musicrevenue.csv', {
+Papa.parse('netflix_series_edited.csv', {
   download: true,
   header: true,
   skipEmptyLines: true,
@@ -11,18 +9,18 @@ Papa.parse('musicrevenue.csv', {
     const values = [];
  
     results.data.forEach(row => {
-      labels.push(row.Platform);
-      values.push(cleanNumber(row.StreamsForUSMonthlyMinimumWage));
+      labels.push(row.country);
+      values.push(cleanNumber(row.count));
     });
  
     new Chart(
-      document.getElementById('revenueChart'),
+      document.getElementById('countryChart'),
       {
         type: 'bar',
         data: {
           labels: labels,
           datasets: [{
-            label: 'Streams for US Monthly Minimum Wage',
+            label: 'Number of Netflix Titles',
             data: values,
             backgroundColor: '#4e79a7'
           }]
@@ -33,7 +31,7 @@ Papa.parse('musicrevenue.csv', {
               type: 'linear',
               title: {
                 display: true,
-                text: 'Streams for US Monthly Minimum Wage'
+                text: 'Number of Netflix Titles'
               }
             }
           }
